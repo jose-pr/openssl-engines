@@ -18,9 +18,8 @@ def capi_root_certs(reload:bool = False):
 class WindowsSSLContext(pyopenssl.PyOpenSSLContext):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        _ctx=self._ctx
-        _ctx.set_options(ssl.OP_NO_TLSv1_1)
-        store=_ctx.get_cert_store()
+        self.options = ssl.OP_NO_TLSv1_1
+        store= self._ctx.get_cert_store()
         for cert in capi_root_certs():
             store.add_cert(cert)
         self._capi = CAPIEngine()

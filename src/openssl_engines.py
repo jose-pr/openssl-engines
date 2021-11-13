@@ -131,10 +131,8 @@ class SSLEngine(object):
 
 
 class CAPIEngine(SSLEngine):
-    def __init__(self, src: FFI.CData | str | None = None) -> None:
-        if not src:
-            src = "capi"
-        super().__init__(SSLEngine(src) if isinstance(src, str) else src)
+    def __init__(self, src: FFI.CData | str | SSLEngine | None = None) -> None:
+        super().__init__("capi" if src == None else src)
 
     def set_store(self, name: str):
         self.ctrl_cmd_string("store_name", name)
