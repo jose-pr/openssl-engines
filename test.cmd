@@ -1,0 +1,1 @@
+openssl engine dynamic -pre DIR_ADD:"C:\Program Files\OpenSSL-Win64\bin"  -pre DIR_LOAD:1 -pre ID:capi -pre LOAD

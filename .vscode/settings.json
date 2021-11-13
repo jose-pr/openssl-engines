@@ -1,0 +1,18 @@
+{
+    "python.testing.pytestArgs": [
+        "tests",
+        "-s"
+    ],
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.analysis.extraPaths": ["./src"],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./tests",
+        "-p",
+        "test_*.py"
+    ],
+    "python.formatting.provider": "black"
+}
